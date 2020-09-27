@@ -19,5 +19,7 @@ def epsilon(dataSet):
 def fraction(dataSet):
     return (epsilon(dataSet) / len(dataSet))
 
+stdev = math.sqrt(fraction(dataSet))
+
 print(f"The average of your dataset is: {average(dataSet)}")
-print(f"The standard deviation of your dataset is: {math.sqrt(fraction(dataSet))}")
+print(f"The standard deviation of your dataset is: {stdev}")
