@@ -1,8 +1,20 @@
 import math
+import random
 
 print("Welcome to the standard deviation calculator!")
-dataSet = list(map(float,input("Enter your dataset, seperated by spaces. Press enter when done: ").strip().split()))
-print(dataSet, len(dataSet))
+randomQuery = input("Would you like a random dataset? Type 1 if yes, Type 2 if no: ")
+if randomQuery == "1" or randomQuery == 1:
+    setMin = int(input("Enter the minimum value of dataset: "))
+    setMax = int(input("Enter the maximus value of dataset: "))
+    size = int(input("Enter the size of your dataset: "))
+    i = setMin
+    dataSet = []
+    for i in range (0, size):
+        randChoice = random.randint(setMin, setMax)
+        dataSet.append(randChoice)
+    print(f'Your dataset was created, with a length of {size}: {dataSet}')
+else:
+    dataSet = list(map(float,input("Enter your dataset, seperated by spaces. Press enter when done: ").strip().split()))
 
 def average(dataSet): # the average of the dataset
     dataSetNum = 0 
