@@ -15,8 +15,9 @@ for i in range (0, len(dataSet)):
 
 for i in range (0, len(calculated)):
     calculated2 = []
-    if calculated[i] in range ((-3 * stDev), (3 * stDev)):
+    if calculated[i] >= (-3 * stDev) and calculated[i] <= (3 * stDev):
         calculated2.append(calculated[i])
+        print(calculated[i])
     else:
         rejected = []
         rejected.append(calculated[i])
@@ -32,6 +33,6 @@ posYAxis = (100) # yMax
 plt.axis([negXAxis, posXAxis, negYAxis, posYAxis])
 plt.xlabel("[-3σ ; 3σ]")
 
-print(calculated)
+print(calculated2)
 plt.hist(calculated2)
 plt.show()
