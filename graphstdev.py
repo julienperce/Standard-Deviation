@@ -29,9 +29,9 @@ negYAxis = (0) # yMin
 posYAxis = (100) # yMax
 
 
-plt.title("Standard deviation graphed to a 99% accuracy")
+plt.title("Standard deviation graphed to a 99.99% accuracy")
 plt.axis([negXAxis, posXAxis, negYAxis, posYAxis])
-plt.xlabel("-3σ ; 3σ")
+plt.xlabel("[-3σ;  3σ]")
 
 print(f'The accepted values were {accepted}')
 plt.hist(accepted)
