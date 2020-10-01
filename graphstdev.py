@@ -24,15 +24,15 @@ for i in range (0, len(calculated)):
 print(f'The rejected values were {rejected}')
 
 for i in range (0, len(accepted)):
-    1s = []
-    2s = []
-    3s = []
-    if accepted[i] <= stdev:
-        1s.append(accepted[i])
-    elif accepted [i] >= stdev and accepted[i] <= (2 * stDev) and accepted[i] <= (-2 * stDev):
-        2s.append(accepted[i])
-    elif accepted [i] >= stdev and accepted[i] <= (3 * stDev) and accepted[i] <= (-3 * stDev):
-        3s.append(accepted[i])
+    sigma1 = []  #in range (-stdev; stdev)
+    sigma2 = []  #in range (-2stdev; 2stdev)
+    sigma3 = []  #in range (-3stdev; 3stdev)   
+    if accepted[i] <= stDev:
+        sigma1.append(accepted[i])
+    elif accepted [i] >= stDev and accepted[i] <= (2 * stDev) and accepted[i] <= (-2 * stDev):
+        sigma2.append(accepted[i])
+    elif accepted [i] >= stDev and accepted[i] <= (3 * stDev) and accepted[i] <= (-3 * stDev):
+        sigma3.append(accepted[i])
 
 negXAxis = ((-3 * stDev)) # xMin
 posXAxis = ((3 * stDev)) # xMax
