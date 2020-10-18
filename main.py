@@ -5,7 +5,7 @@ print("Welcome to the standard deviation calculator!")
 randomQuery = input("Would you like a random dataset? Type 1 if yes, Type 2 if no: ")
 if randomQuery == "1" or randomQuery == 1:
     setMin = int(input("Enter the minimum value of dataset: "))
-    setMax = int(input("Enter the maximus value of dataset: "))
+    setMax = int(input("Enter the maximum value of dataset: "))
     size = int(input("Enter the size of your dataset: "))
     i = setMin
     dataSet = []
