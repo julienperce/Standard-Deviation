@@ -28,14 +28,15 @@ def average(dataSet): # the average of the dataset
         dataSetNum += dataSet[i]
     return float(dataSetNum / len(dataSet))
 
-def epsilon(dataSet): 
+def epsilon(dataSet, average): # The distance between each datapoint and the mean, and then squared
     bases = []
     for i in range (0, len(dataSet)):
-        bases.append(((dataSet[i] - average(dataSet))**2))
+        base = (dataSet[i] - average)**2
+        bases.append(base)
     return sum(bases)
 
 def fraction(dataSet):
-    return (epsilon(dataSet) / len(dataSet))
+    return (epsilon(dataSet, average) / len(dataSet))
 
 def graphDev(dataSet, average):  # mean
     print("Graphing...")
@@ -47,15 +48,12 @@ def graphDev(dataSet, average):  # mean
     for i in range (0, len(dataSet)):
         calcMeanDev = float(dataSet[i] - stDev)
         calculated.append(calcMeanDev)
-        print(calcMeanDev)
 
     for i in range (0, len(calculated)):
         if calculated[i] >= (-3 * stDev) and calculated[i] <= (3 * stDev):
             accepted.append(calculated[i])
         else:
             rejected.append(calculated[i])
-
-    print(f'The rejected values were {rejected}')
 
     def marginOfError(stDev, confidenceLevel, calculated):
         standardError = (stDev / (math.sqrt(len(calculated))))
@@ -85,7 +83,6 @@ def graphDev(dataSet, average):  # mean
     plt.xlim(-4, 4)
     plt.xlabel("[-3σ;  3σ]", fontsize = 14)
 
-    print(f'The accepted values were {accepted}')
     print(f"Margin of error: {marginOfError(stDev, confidenceLevel, calculated)}")
     print(f"Lower bound = {lower_bound} ; Upper bound = {upper_bound}")
     with plt.style.context('dark_background'):
